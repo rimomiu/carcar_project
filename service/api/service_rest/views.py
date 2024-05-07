@@ -45,14 +45,14 @@ def api_list_technicians(request):
         )
     else:
         content = json.loads(request.body)
-        # try:
-        #     appointment = Appointment.objects.get(id = content["appointment"])
-        #     content["appointment"] = appointment
-        # except Appointment.DoesNotExist:
-        #     return JsonResponse(
-        #         {"message": "No appointment found"},
-        #         status = 400,
-        #     )
+        try:
+            technician = Technician.objects.get(id = content["technician"])
+            content["technician"] = technician
+        except Technician.DoesNotExist:
+            return JsonResponse(
+                {"message": "No technician found"},
+                status = 400,
+            )
         technician = Technician.objects.create(**content)
         return JsonResponse(
             technician,
@@ -70,9 +70,59 @@ def api_list_appointments(request):
         )
     else:
         content = json.loads(request.body)
+        try:
+            appointment = Appointment.objects.get(id = content["appointment"])
+            content["appointment"] = appointment
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"message": "No appointment found"},
+                status = 400,
+            )
         appointment = Appointment.objects.create(**content)
         return JsonResponse(
             appointment,
             encoder = AppointmentEncoder,
             safe = False,
         )
+
+@require_http_methods(["DELETE", "GET", "PUT"])
+def api_show_technicians(request, id):
+    if request.method == "GET":
+        technician = Technician.objects.get(id=id)
+        return JsonResponse(
+        technician,
+        encoder=TechnicianEncoder,
+        safe=False
+        )
+    elif request.method == "DELETE":
+        count, _ = Technician.objects.filter(id=id).delete()
+        return JsonResponse({"deleted": count > 0})
+    else:
+        content = json.loads(request.body)
+    technician = Technician.objects.update(**content)
+    return JsonResponse(
+        technician,
+        encoder=TechnicianEncoder,
+        safe=False,
+    )
+
+@require_http_methods(["DELETE", "GET", "PUT"])
+def api_show_appointments(request, id):
+    if request.method == "GET":
+        appointment = Appointment.objects.get(id=id)
+        return JsonResponse(
+        appointment,
+        encoder=AppointmentEncoder,
+        safe=False
+        )
+    elif request.method == "DELETE":
+        count, _ = Appointment.objects.filter(id=id).delete()
+        return JsonResponse({"deleted": count > 0})
+    else:
+        content = json.loads(request.body)
+    appointment = Appointment.objects.update(**content)
+    return JsonResponse(
+        appointment,
+        encoder=AppointmentEncoder,
+        safe=False,
+    )
