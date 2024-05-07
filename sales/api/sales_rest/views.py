@@ -19,7 +19,13 @@ class SalesPersonEncoder(ModelEncoder):
 
 class CustomerEncoder(ModelEncoder):
     model = Customer
-    properties = ["first_name", "last_name", "address", "phone_number", "id"]
+    properties = [
+        "first_name",
+        "last_name",
+        "address",
+        "phone_number",
+        "id",
+    ]
 
 
 class SaleEncoder(ModelEncoder):
@@ -60,10 +66,11 @@ def api_show_salespeople(request, id):
     return JsonResponse({"deleted": count > 0})
 
 
+@require_http_methods(["GET", "POST"])
 def api_list_customer(request):
     if request.method == "GET":
-        customer = Customer.objects.all()
-        return JsonResponse({"customer": customer}, encoder=CustomerEncoder)
+        customers = Customer.objects.all()
+        return JsonResponse({"customers": customers}, encoder=CustomerEncoder)
     else:
         try:
             content = json.loads(request.body)

@@ -2,9 +2,9 @@
 
 Team:
 
-* Person 1 - Which microservice?
-Jihanyu Miao- Sales
-* Person 2 - Which microservice?
+- Person 1 - Which microservice?
+  Jihanyu Miao- Sales
+- Person 2 - Which microservice?
 
 ## Design
 
@@ -15,18 +15,22 @@ microservice, here.
 
 ## Sales microservice
 
-
 Salesperson
 
 Customer
 
 Sale
 
-
-for api, 
+for api,
 it needs list_salesperson with get and post
-show_salesperson with delete 
+show_salesperson with delete
 list_customer with get and post
 show_customer with delete
 list_sales with get and post include customer, salesperson, autoVO
-show_sales with delete 
+show_sales with delete
+
+for front-end
+it needs
+Salespeople form and list
+sales form and list
+customer form and list
