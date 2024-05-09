@@ -4,12 +4,14 @@ from django.views.decorators.http import require_http_methods
 import json
 from common.json import ModelEncoder
 from sales_rest.models import Customer, Sale, Salesperson, AutomobileVO
-from django.core.exceptions import ObjectDoesNotExist
 
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin", "sold"]
+    properties = [
+        "vin",
+        "sold",
+    ]
 
 
 class SalesPersonEncoder(ModelEncoder):
@@ -30,7 +32,13 @@ class CustomerEncoder(ModelEncoder):
 
 class SaleEncoder(ModelEncoder):
     model = Sale
-    properties = ["automobile", "salesperson", "customer", "id"]
+    properties = [
+        "automobile",
+        "salesperson",
+        "customer",
+        "id",
+        "price",
+    ]
     encoders = {
         "automobile": AutomobileVOEncoder(),
         "salesperson": SalesPersonEncoder(),
@@ -95,12 +103,9 @@ def api_show_customer(request, id):
 
 
 @require_http_methods(["GET", "POST"])
-def api_list_sales(request, automobile_vo_id=None):
+def api_list_sales(request):
     if request.method == "GET":
-        if automobile_vo_id is not None:
-            sales = Sale.objects.filter(automobile=automobile_vo_id)
-        else:
-            sales = Sale.objects.all()
+        sales = Sale.objects.all()
         return JsonResponse({"sales": sales}, encoder=SaleEncoder)
     else:
         content = json.loads(request.body)
@@ -122,7 +127,14 @@ def api_list_sales(request, automobile_vo_id=None):
                 {"message": "Invalid customer"},
                 status=400,
             )
-
+        try:
+            automobile = AutomobileVO.objects.get(vin=content["automobile"])
+            content["automobile"] = automobile
+        except:
+            return JsonResponse(
+                {"message": "Invalid Automobile"},
+                status=400,
+            )
         sale = Sale.objects.create(**content)
         return JsonResponse(
             sale,

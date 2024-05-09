@@ -61,6 +61,30 @@ function Nav() {
                 Sales History
               </NavLink>
             </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="automobiles/create">
+                Create automobiles
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="automobiles/list">
+                Automobiles List
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="manufacturer/create">
+                Create New Manufacturer
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="manufacturer/list">
+                Manufacturer List
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

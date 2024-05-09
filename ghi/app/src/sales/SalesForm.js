@@ -10,6 +10,23 @@ function SalesForm() {
   const [customer, setCustomer] = useState("");
   const [price, setPrice] = useState("");
 
+  const handleVINChange = (event) => {
+    const { value } = event.target;
+    setVin(value);
+  };
+  const handleSalespersonChange = (event) => {
+    const { value } = event.target;
+    setSalesperson(value);
+  };
+  const handleCustomerChange = (event) => {
+    const { value } = event.target;
+    setCustomer(value);
+  };
+  const handlePriceChange = (event) => {
+    const value = event.target.value;
+    setPrice(value);
+  };
+
   const fetchAutosData = async () => {
     const url = "http://localhost:8100/api/automobiles/";
     const response = await fetch(url);
@@ -46,64 +63,54 @@ function SalesForm() {
     fetchCustomersData();
   }, []);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const data = {};
-    data.vin = vin;
-    data.salesperson = salesperson;
-    data.customer = customer;
-    data.price = price;
+  const recordSale = async () => {
+    const salesData = {};
+
+    salesData.automobile = vin;
+    salesData.salesperson = salesperson;
+    salesData.customer = customer;
+    salesData.price = price;
 
     const salesUrl = "http://localhost:8090/api/sales/";
     const fetchSalesConfig = {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(salesData),
       headers: {
         "Content-Type": "application/json",
       },
     };
 
-    const response = await fetch(salesUrl, fetchSalesConfig);
-    if (response.ok) {
-      const newSales = await response.json();
+    const salesResponse = await fetch(salesUrl, fetchSalesConfig);
+
+    if (salesResponse.ok) {
       setVin("");
       setSalesperson("");
       setCustomer("");
       setPrice("");
     }
   };
-  const editSold = async (event) => {
+
+  const editSold = async () => {
     const autoData = {};
 
     autoData.sold = true;
 
     const autoUrl = `http://localhost:8100/api/automobiles/${vin}/`;
     const fetchAutoConfig = {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify(autoData),
       headers: {
         "Content-Type": "application/json",
       },
     };
 
-    const response = await fetch(autoUrl, fetchAutoConfig);
+    const autoResponse = await fetch(autoUrl, fetchAutoConfig);
   };
 
-  const handleVINChange = (event) => {
-    const value = event.target.value;
-    setVin(value);
-  };
-  const handleSalespersonChange = (event) => {
-    const value = event.target.value;
-    setSalesperson(value);
-  };
-  const handleCustomerChange = (event) => {
-    const value = event.target.value;
-    setCustomer(value);
-  };
-  const handlePriceChange = (event) => {
-    const value = event.target.value;
-    setPrice(value);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    recordSale();
+    editSold();
   };
 
   return (
