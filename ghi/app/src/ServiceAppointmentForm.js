@@ -4,7 +4,6 @@ function CreateServiceAppointment() {
     const [technicians, setTechnicians] = useState([]);
 
     const [appointmentData, setAppointmentData] = useState({
-        status: '',
         customer: '',
         vin: '',
         set_date: '',
@@ -39,7 +38,6 @@ function CreateServiceAppointment() {
             });
             if (response.ok) {
                 setAppointmentData({
-                    status: '',
                     customer: '',
                     vin: '',
                     set_date: '',
@@ -63,9 +61,10 @@ function CreateServiceAppointment() {
         });
     }
 
-    useEffect(() => {
-        console.log('appointment', appointmentData);
-    }, [appointmentData]);
+    // useEffect(() => {
+    //     console.log('appointment', appointmentData);
+    // }, [appointmentData]);
+    // This is used to watch the state change when filling out fields. Very useful, if I do say so myself.
 
     return (
         <div className={'row'}>
@@ -73,10 +72,6 @@ function CreateServiceAppointment() {
                 <div className="shadow p-4 mt-4">
                     <h1>Create a Service Appointment</h1>
                     <form onSubmit={handleSubmit} id="create-service-appointment">
-                        <div className="form-floating mb-3">
-                            <input onChange={handleFormChange} placeholder="Status" required type="text" value={appointmentData.status} name="status" id="status" className="form-control" />
-                            <label htmlFor="status">Status</label>
-                        </div>
                         <div className="form-floating mb-3">
                             <input onChange={handleFormChange} placeholder="Customer" required type="text" value={appointmentData.customer} name="customer" id="customer" className="form-control" />
                             <label htmlFor="customer">Customer</label>

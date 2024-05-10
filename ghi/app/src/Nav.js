@@ -2,25 +2,38 @@ import { NavLink } from 'react-router-dom';
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="ml-auto navbar-dark bg-dark navbar-expand-m">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">CarCar</NavLink>
-
+        <NavLink className="navbar-brand" to="/">Home</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <div className="dropdown show">
-            <a className="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Technicians
-            </a>
-
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a className="dropdown-item" href="#">Action</a>
-              <a className="dropdown-item" href="#">Another action</a>
-              <a className="dropdown-item" href="#">Something else here</a>
+        <ul class="navbar-nav mr-auto justify-content-between">
+            <div>
+              <li className="nav-item">
+                <NavLink className="nav-link active" aria-current="page" to='/technicians/'>List Technicians</NavLink>
+                <NavLink className="nav-link active" aria-current="page" to='/technicians/new/'>Create a Technician</NavLink>
+              </li>
             </div>
-          </div>
+            <div>
+              <li className="nav-item">
+                <NavLink className="nav-link active" aria-current="page" to='/appointments/'>List Appointments</NavLink>
+                <NavLink className="nav-link active" aria-current="page" to='/appointments/new/'>Create an Appointment</NavLink>
+              </li>
+            </div>
+            <div>
+              <li className="nav-item">
+                <NavLink className="nav-link active" aria-current="page" to='/models/'>List Vehicle Models</NavLink>
+                <NavLink className="nav-link active" aria-current="page" to='/models/new/'>Create a Model</NavLink>
+              </li>
+            </div>
+            <div>
+              <li className="nav-item">
+                <NavLink className="nav-link active" to='/history/'>Service History</NavLink>
+              </li>
+            </div>
+          </ul>
         </div>
       </div>
     </nav>

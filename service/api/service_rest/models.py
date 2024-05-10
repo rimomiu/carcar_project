@@ -12,10 +12,11 @@ class Technician(models.Model):
     employee_id = models.CharField(max_length = 100, unique = True)
 
 class Appointment(models.Model):
+    status = models.TextField(max_length = 20, default='pending')
+    is_vip = models.BooleanField(default=False)
     set_date = models.DateField(default=None)
     set_time = models.TimeField(default=None)
     reason = models.TextField(max_length = 250)
-    status = models.TextField(max_length = 20)
     vin = models.CharField(max_length = 20, unique = True)
     customer = models.TextField(max_length = 50)
     technician = models.ForeignKey(
