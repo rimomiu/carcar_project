@@ -30,6 +30,8 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
+    'service_rest.apps.ServiceRestConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -112,6 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
+
+DATETIME_FORMAT = '%I:%M %p'
 
 LANGUAGE_CODE = 'en-us'
 

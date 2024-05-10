@@ -1,6 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
 import Nav from "./Nav";
+import AddTechnician from "./AddTechnician";
+import TechnicianList from "./TechnicianList";
+import CreateServiceAppointment from "./ServiceAppointmentForm";
+import AppointmentList from "./AppointmentList";
+import VehicleModelList from "./VehicleModelList";
+import CreateVehicleModel from "./CreateVehicleModel";
+import ServiceHistory from "./ServiceHistory";
 import CustomerList from "./sales/CustomerList";
 import CustomerForm from "./sales/CustomerForm";
 import SalespeopleList from "./sales/SalespeopleList";
@@ -13,13 +20,23 @@ import AutomobilesForm from "./inventory/AutomobilesForm";
 import ManufacturerForm from "./inventory/ManufacturerForm";
 import ManufacturerList from "./inventory/ManufacturerList";
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <Nav />
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/technicians/" element={<TechnicianList />} />
+          <Route path="/technicians/new/" element={<AddTechnician />} />
+          <Route path="/appointments/" element={<AppointmentList />} />
+          <Route
+            path="/appointments/new/"
+            element={<CreateServiceAppointment />}
+          />
+          <Route path="/models/" element={<VehicleModelList />} />
+          <Route path="/models/new/" element={<CreateVehicleModel />} />
+          <Route path="/history/" element={<ServiceHistory />} />
           <Route path="customer">
             <Route path="create" element={<CustomerForm />} />
             <Route path="list" element={<CustomerList />} />

@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="ml-auto navbar-dark bg-dark navbar-expand-m">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          CarCar
+          Home
         </NavLink>
         <button
           className="navbar-toggler"
@@ -19,7 +19,68 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav mr-auto justify-content-between">
+            <div>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/technicians/"
+                >
+                  List Technicians
+                </NavLink>
+                <NavLink
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/technicians/new/"
+                >
+                  Create a Technician
+                </NavLink>
+              </li>
+            </div>
+            <div>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/appointments/"
+                >
+                  List Appointments
+                </NavLink>
+                <NavLink
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/appointments/new/"
+                >
+                  Create an Appointment
+                </NavLink>
+              </li>
+            </div>
+            <div>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/models/"
+                >
+                  List Vehicle Models
+                </NavLink>
+                <NavLink
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/models/new/"
+                >
+                  Create a Model
+                </NavLink>
+              </li>
+            </div>
+            <div>
+              <li className="nav-item">
+                <NavLink className="nav-link active" to="/history/">
+                  Service History
+                </NavLink>
+              </li>
+            </div>
             <li className="nav-item">
               <NavLink className="nav-link" to="/customer/list">
                 Customers
