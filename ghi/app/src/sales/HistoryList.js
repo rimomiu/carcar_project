@@ -9,30 +9,23 @@ function HistoryList() {
     const value = event.target.value;
     setSalesperson(value);
   };
+  const fetchData = async () => {
+    const salespeopleResponse = await fetch(
+      "http://localhost:8090/api/salespeople/"
+    );
+    const salesResponse = await fetch("http://localhost:8090/api/sales/");
 
-  const fetchSalespeople = async () => {
-    const response = await fetch("http://localhost:8090/api/salespeople/");
-    if (response.ok) {
-      const data = await response.json();
-      setSalespeople(data.salespeople);
-    } else {
-      console.error(response);
-    }
-  };
+    if (salespeopleResponse.ok && salesResponse.ok) {
+      const salespeopleData = await salespeopleResponse.json();
+      const salesData = await salesResponse.json();
 
-  const fetchSales = async () => {
-    const response = await fetch("http://localhost:8090/api/sales/");
-    if (response.ok) {
-      const data = await response.json();
-      setSales(data.sales);
-    } else {
-      console.error(response);
+      setSalespeople(salespeopleData.salespeople);
+      setSales(salesData.sales);
     }
   };
 
   useEffect(() => {
-    fetchSalespeople();
-    fetchSales();
+    fetchData();
   }, []);
 
   return (

@@ -8,8 +8,6 @@ function SalesList() {
     if (response.ok) {
       const data = await response.json();
       setSales(data.sales);
-    } else {
-      console.error(response);
     }
   };
 

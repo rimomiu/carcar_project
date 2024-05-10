@@ -67,8 +67,8 @@ function SalesForm() {
     const salesData = {};
 
     salesData.automobile = vin;
-    salesData.salesperson = salesperson;
-    salesData.customer = customer;
+    salesData.salespeople = salesperson;
+    salesData.customers = customer;
     salesData.price = price;
 
     const salesUrl = "http://localhost:8090/api/sales/";
@@ -129,15 +129,13 @@ function SalesForm() {
                 className="form-select"
               >
                 <option value="">Choose an automobile VIN</option>
-                {autos
-                  .filter((auto) => auto.sold === false)
-                  .map((auto) => {
-                    return (
-                      <option key={auto.id} value={auto.vin}>
-                        {auto.vin}
-                      </option>
-                    );
-                  })}
+                {autos.map((auto) => {
+                  return (
+                    <option key={auto.id} value={auto.vin}>
+                      {auto.vin}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <div className="mb-3">
