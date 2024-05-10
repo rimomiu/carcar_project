@@ -3,11 +3,9 @@ Team:
 - Jihanyu Miao - Sales
 - Joshua Kahn - Service
 
-* Person 1 - Which microservice?
-  Jihanyu Miao- Sales
-* Person 2 - Which microservice?
-
 ## Design
+
+![design](image.png)
 
 ## Service microservice
 
