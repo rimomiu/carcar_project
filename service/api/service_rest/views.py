@@ -1,9 +1,11 @@
+from time import strftime
 from django.shortcuts import render
 from django.http import JsonResponse
 from common.json import ModelEncoder
 from django.views.decorators.http import require_http_methods
 from .models import AutomobileVO, Appointment, Technician
 import json
+from datetime import datetime
 # Create your views here.
 
 class AutomobileVOEncoder(ModelEncoder):
@@ -19,12 +21,14 @@ class TechnicianEncoder(ModelEncoder):
         "first_name",
         "last_name",
         "employee_id",
+        "id"
     }
 
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
     properties = {
-        "date_time",
+        "set_date",
+        "set_time",
         "reason",
         "status",
         "vin",
@@ -38,16 +42,16 @@ class AppointmentEncoder(ModelEncoder):
 @require_http_methods(["GET", "POST"])
 def api_list_technicians(request):
     if request.method == "GET":
-        technician = Technician.objects.all()
+        technicians = Technician.objects.all()
         return JsonResponse(
-            {"technician": technician},
+            {"technicians": technicians},
             encoder = TechnicianEncoder,
         )
     else:
         content = json.loads(request.body)
-        technician = Technician.objects.create(**content)
+        technicians = Technician.objects.create(**content)
         return JsonResponse(
-            technician,
+            technicians,
             encoder = TechnicianEncoder,
             safe = False,
         )
@@ -55,13 +59,15 @@ def api_list_technicians(request):
 @require_http_methods(["GET", "POST"])
 def api_list_appointments(request):
     if request.method == "GET":
-        appointment = Appointment.objects.all()
+        appointments = Appointment.objects.all()
         return JsonResponse(
-            {"appointment": appointment},
+            {"appointments": appointments},
             encoder = AppointmentEncoder,
         )
     else:
         content = json.loads(request.body)
+        technician = Technician.objects.get(id=content["technician"])
+        content["technician"] = technician
         appointment = Appointment.objects.create(**content)
         return JsonResponse(
             appointment,
@@ -72,9 +78,9 @@ def api_list_appointments(request):
 @require_http_methods(["DELETE", "GET", "PUT"])
 def api_show_technicians(request, id):
     if request.method == "GET":
-        technician = Technician.objects.get(id=id)
+        technicians = Technician.objects.get(id=id)
         return JsonResponse(
-        technician,
+        technicians,
         encoder=TechnicianEncoder,
         safe=False
         )
@@ -83,9 +89,9 @@ def api_show_technicians(request, id):
         return JsonResponse({"deleted": count > 0})
     else:
         content = json.loads(request.body)
-    technician = Technician.objects.update(**content)
+    technicians = Technician.objects.filter(pk=id).update(**content)
     return JsonResponse(
-        technician,
+        technicians,
         encoder=TechnicianEncoder,
         safe=False,
     )
@@ -104,7 +110,7 @@ def api_show_appointments(request, id):
         return JsonResponse({"deleted": count > 0})
     else:
         content = json.loads(request.body)
-    appointment = Appointment.objects.update(**content)
+    appointment = Appointment.objects.filter(pk=id).update(**content)
     return JsonResponse(
         appointment,
         encoder=AppointmentEncoder,

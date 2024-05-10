@@ -3,14 +3,14 @@ import { Fragment } from "react";
 
 
 function TechnicianList() {
-    const [technician, setTechnician] = useState([]);
+    const [technicians, setTechnician] = useState([]);
 
     async function newTechnician() {
         const response = await fetch('http://localhost:8080/api/technicians/');
         if (response.ok) {
-            const { technician } = await response.json();
+            const data = await response.json();
 
-            setTechnician(technician);
+            setTechnician(data.technicians);
         }
         else {
             console.error('Error');
@@ -32,7 +32,7 @@ function TechnicianList() {
         newTechnician();
     }, []);
 
-    if (technician === undefined) {
+    if (technicians === undefined) {
         return null;
     }
 
@@ -49,7 +49,7 @@ function TechnicianList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {technician.map(technician => {
+                    {technicians.map(technician => {
                         return (
                             <tr key={technician.id}>
                                 <td>{technician.first_name}</td>

@@ -3,6 +3,10 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import AddTechnician from './AddTechnician';
 import TechnicianList from './TechnicianList';
+import CreateServiceAppointment from './ServiceAppointmentForm';
+import AppointmentList from './AppointmentList';
+import VehicleModelList from './VehicleModelList'
+import CreateVehicleModel from './CreateVehicleModel';
 
 function App(props) {
   return (
@@ -11,8 +15,12 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path='/technicians/' element={<TechnicianList technician={props.technician}/>} />
+          <Route path='/technicians/' element={<TechnicianList />} />
           <Route path='/technicians/new/' element={<AddTechnician />} />
+          <Route path='/appointments/' element={<AppointmentList />} />
+          <Route path='/appointments/new/' element={<CreateServiceAppointment />} />
+          <Route path='/models/' element={<VehicleModelList />} />
+          <Route path='/models/new/' element={<CreateVehicleModel />} />
         </Routes>
       </div>
     </BrowserRouter>
