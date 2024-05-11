@@ -166,31 +166,6 @@ by CREATE, it needs provide information in a json body, includes:
 "price": 45000
 }
 
-<!-- for api,
-it needs list_salesperson with get and post
-show_salesperson with delete
-list_customer with get and post
-show_customer with delete
-list_sales with get and post include customer, salesperson, autoVO
-show_sales with delete
-
-for front-end
-it needs
-Salespeople form and list
-sales form and list
-customer form and list
-salesperson history list -->
-
-Sales Front-end
-
-Sales form: http://localhost:3000/sales/create
-Sales List:http://localhost:3000/sales/list
-Salespeople form: http://localhost:3000/salespeople/create
-Salespeople list:http://localhost:3000/salespeople/list
-Customer form:http://localhost:3000/customer/create
-Customer list:http://localhost:3000/customer/list
-Sales History:http://localhost:3000/history/salesperson
-
 | Page Name        | URL                                       |
 | ---------------- | ----------------------------------------- |
 | Sales form       | http://localhost:3000/sales/create        |
