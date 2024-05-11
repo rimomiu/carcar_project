@@ -9,7 +9,7 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto justify-content-between">
+        <ul className="navbar-nav mr-auto justify-content-between">
             <div>
               <li className="nav-item">
                 <NavLink className="nav-link active" aria-current="page" to='/technicians/'>List Technicians</NavLink>
