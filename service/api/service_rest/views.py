@@ -121,10 +121,10 @@ def api_show_appointments(request, id):
         safe=False,
     )
 
-@require_http_methods(["PUT", "GET"])
-def api_list_canceled(request):
+@require_http_methods(["PUT"])
+def api_list_canceled(request, id):
     if request.method == 'PUT':
-        appointment = Appointment.objects.get('status')
+        appointment = Appointment.objects.get(id=id)
         if appointment.status == 'pending':
             appointment.status = 'canceled'
             appointment.save()
@@ -134,14 +134,13 @@ def api_list_canceled(request):
         safe=False,
     )
 
-@require_http_methods(["PUT", "GET"])
-def api_list_finished(request):
+@require_http_methods(["PUT"])
+def api_list_finished(request, id):
     if request.method == 'PUT':
-        appointment = Appointment.objects.get('status')
+        appointment = Appointment.objects.get(id=id)
         if appointment.status == 'pending':
             appointment.status = 'finished'
             appointment.save()
-
     return JsonResponse(
         appointment,
         encoder=AppointmentEncoder,

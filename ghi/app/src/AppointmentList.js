@@ -85,9 +85,9 @@ function AppointmentList() {
                             <td>{appointment.set_time}</td>
                             <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
                             <td>{appointment.reason}</td>
-                            <Fragment>
-                            <button onClick={buttonHandlerCanceled} className="btn btn-danger p-1">Cancel</button><button onClick={buttonHandlerFinished} className="btn btn-success p-1">Finish</button>
-                            </Fragment>
+                            <td>
+                            <button onClick={() => buttonHandlerCanceled(appointment.id)} className="btn btn-danger p-1">Cancel</button><button onClick={() => buttonHandlerFinished(appointment.id)} className="btn btn-success p-1">Finish</button>
+                            </td>
                         </tr>
                     );
 

@@ -61,7 +61,7 @@ return (
                     <tr key={model.id}>
                         <td>{model.name}</td>
                         <td>{model.manufacturer.name}</td>
-                        <td><div><img className="img-fluid img-thumbnail" src={model.picture_url} alt={model.picture_url} picture_url={{ width: '100px', height: '100px' }} /></div></td>
+                        <td><img className="img-fluid img-thumbnail" src={model.picture_url} alt={model.picture_url} picture_url={{ width: '100px', height: '100px' }} /></td>
                     </tr>
                 );
             })}

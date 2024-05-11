@@ -20,11 +20,10 @@ function AppointmentHistory() {
     }, []);
 
     const handleChange = (e) => {
-        e.preventDefault();
         setSearchInput(e.target.value);
     };
 
-    if (searchInput.length > 0) {
+    if (searchInput.length >= 0) {
         appointments.filter((appointment) => {
             return appointment.vin.match(searchInput);
         });
@@ -36,7 +35,7 @@ function AppointmentHistory() {
 
     return (
         <Fragment>
-        <input type="text" placeholder="Search here" onChange={handleChange} value={searchInput} /> <button className="btn btn-primary">Submit</button>
+        <input type="text" placeholder="Search here" /><button onClick={() => handleChange(searchInput)} className="btn btn-primary p-1">Submit</button>
         <table className="table table-striped">
             <thead>
                 <tr>
