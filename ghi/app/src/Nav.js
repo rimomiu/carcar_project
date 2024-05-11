@@ -81,6 +81,18 @@ function Nav() {
                 </NavLink>
               </li>
             </div>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="manufacturer/create">
+                Create New Manufacturer
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="manufacturer/list">
+                Manufacturer List
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/customer/list">
                 Customers
@@ -106,6 +118,18 @@ function Nav() {
             </li>
 
             <li className="nav-item">
+              <NavLink className="nav-link" to="automobiles/create">
+                Create automobiles
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="automobiles/list">
+                Automobiles List
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
               <NavLink className="nav-link" to="/sales/create">
                 Create New Sale
               </NavLink>
@@ -120,30 +144,6 @@ function Nav() {
             <li className="nav-item">
               <NavLink className="nav-link" to="history/salesperson">
                 Sales History
-              </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="automobiles/create">
-                Create automobiles
-              </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="automobiles/list">
-                Automobiles List
-              </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="manufacturer/create">
-                Create New Manufacturer
-              </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="manufacturer/list">
-                Manufacturer List
               </NavLink>
             </li>
           </ul>

@@ -5,8 +5,6 @@ Team:
 
 ## Design
 
-![design](image.png)
-
 ## Service microservice
 
 ## First Steps
@@ -29,7 +27,7 @@ The first command will provide us with a place to store data, the second will ac
 
 ## Diagram
 
-- Put diagram here
+![design](image.png)
 
 ## API Documentation
 
@@ -192,3 +190,13 @@ Salespeople list:http://localhost:3000/salespeople/list
 Customer form:http://localhost:3000/customer/create
 Customer list:http://localhost:3000/customer/list
 Sales History:http://localhost:3000/history/salesperson
+
+| Page Name        | URL                                       |
+| ---------------- | ----------------------------------------- |
+| Sales form       | http://localhost:3000/sales/create        |
+| Sales List       | http://localhost:3000/sales/list          |
+| Salespeople form | http://localhost:3000/salespeople/create  |
+| Salespeople list | http://localhost:3000/salespeople/list    |
+| Customer form    | http://localhost:3000/customer/create     |
+| Customer list    | http://localhost:3000/customer/list       |
+| Sales History    | http://localhost:3000/history/salesperson |
