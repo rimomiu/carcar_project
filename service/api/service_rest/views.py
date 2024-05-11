@@ -122,11 +122,11 @@ def api_show_appointments(request, id):
     )
 
 @require_http_methods(["PUT"])
-def api_list_canceled(request, id):
+def api_list_cancelled(request, id):
     if request.method == 'PUT':
         appointment = Appointment.objects.get(id=id)
         if appointment.status == 'pending':
-            appointment.status = 'canceled'
+            appointment.status = 'cancelled'
             appointment.save()
     return JsonResponse(
         appointment,

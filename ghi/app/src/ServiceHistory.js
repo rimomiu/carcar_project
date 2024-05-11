@@ -35,7 +35,7 @@ function AppointmentHistory() {
 
     return (
         <Fragment>
-        <input type="text" placeholder="Search here" /><button onClick={() => handleChange(searchInput)} className="btn btn-primary p-1">Submit</button>
+        <input type="text" placeholder="Search by VIN" /><button onClick={() => handleChange(searchInput)} className="btn btn-primary p-1">Submit</button>
         <table className="table table-striped">
             <thead>
                 <tr>
