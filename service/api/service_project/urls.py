@@ -23,6 +23,6 @@ urlpatterns = [
     path('api/technicians/<int:id>/', api_show_technicians, name = "api_show_technicians"),
     path('api/appointments/', api_list_appointments, name = "api_list_appointments"),
     path('api/appointments/<int:id>/', api_show_appointments, name = "api_show_appointments"),
-    path('api/appointments/<int:id>/cancel/', api_list_cancelled, name = "api_list_canceled"),
+    path('api/appointments/<int:id>/cancel/', api_list_cancelled, name = "api_list_cancelled"),
     path('api/appointments/<int:id>/finish/', api_list_finished, name = "api_list_finished")
 ]
