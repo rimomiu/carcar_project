@@ -117,7 +117,7 @@ def api_list_sales(request):
         content = json.loads(request.body)
 
         try:
-            salesperson = Salesperson.objects.get(first_name=content["salesperson"])
+            salesperson = Salesperson.objects.get(id=content["salesperson"])
             content["salesperson"] = salesperson
         except:
             return JsonResponse(
@@ -126,7 +126,7 @@ def api_list_sales(request):
             )
 
         try:
-            customer = Customer.objects.get(first_name=content["customer"])
+            customer = Customer.objects.get(id=content["customer"])
             content["customer"] = customer
         except:
             return JsonResponse(
