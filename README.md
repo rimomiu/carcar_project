@@ -59,7 +59,7 @@ Appointments:
 
  This is the JSON body that will be returned when listing technicians.
 
-{
+```{
 	"technicians": [
 		{
 			"first_name": "James",
@@ -87,22 +87,26 @@ Appointments:
 		}
 	]
 }
+```
 
  As these technician objects will be nested inside of other objects, such as appointments where they are linked, please keep in mind that if you enter a body for an appointment you will want to put the id for the technician in the matching field so that it can reference the content inside of it.
 
  A single technician looks like this:
 
+```
  {
 	"id": 17,
 	"first_name": "James",
 	"employee_id": "4321",
 	"last_name": "TechGuy"
 }
+```
 
 Appointments:
 
 For a list of appointments, it will end up looking like this.
 
+```
 {
 	"appointments": [
 		{
@@ -137,11 +141,13 @@ For a list of appointments, it will end up looking like this.
 		}
 	]
 }
+```
 
 The VIN field is unique, so trying to enter the same one twice will end up causing problems! The is_vip field is set automatically by using the poller information to cross reference vins that are already in our inventory. Its default is false unless we get that match.
 
 A single appointment is structured below for reference.
 
+```
 {
 	"technician": {
 		"first_name": "Johnny",
@@ -157,6 +163,7 @@ A single appointment is structured below for reference.
 	"set_date": "2024-05-29",
 	"customer": "Sarah Grey"
 }
+```
 
 Again, just a note that technicians are matched up to appointments by their generated ids!
 
