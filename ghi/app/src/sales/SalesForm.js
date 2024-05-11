@@ -5,14 +5,14 @@ function SalesForm() {
   const [salespeople, setSalespeople] = useState([]);
   const [customers, setCustomers] = useState([]);
 
-  const [vin, setVin] = useState("");
+  const [automobile, setAutomobile] = useState("");
   const [salesperson, setSalesperson] = useState("");
   const [customer, setCustomer] = useState("");
   const [price, setPrice] = useState("");
 
   const handleVINChange = (event) => {
     const { value } = event.target;
-    setVin(value);
+    setAutomobile(value);
   };
   const handleSalespersonChange = (event) => {
     const { value } = event.target;
@@ -66,9 +66,9 @@ function SalesForm() {
   const recordSale = async () => {
     const salesData = {};
 
-    salesData.automobile = vin;
-    salesData.salespeople = salesperson;
-    salesData.customers = customer;
+    salesData.automobile = automobile;
+    salesData.salesperson = salesperson;
+    salesData.customer = customer;
     salesData.price = price;
 
     const salesUrl = "http://localhost:8090/api/sales/";
@@ -83,7 +83,7 @@ function SalesForm() {
     const salesResponse = await fetch(salesUrl, fetchSalesConfig);
 
     if (salesResponse.ok) {
-      setVin("");
+      setAutomobile("");
       setSalesperson("");
       setCustomer("");
       setPrice("");
@@ -95,7 +95,7 @@ function SalesForm() {
 
     autoData.sold = true;
 
-    const autoUrl = `http://localhost:8100/api/automobiles/${vin}/`;
+    const autoUrl = `http://localhost:8100/api/automobiles/${automobile}/`;
     const fetchAutoConfig = {
       method: "PUT",
       body: JSON.stringify(autoData),
@@ -122,9 +122,9 @@ function SalesForm() {
             <div className="mb-3">
               <select
                 onChange={handleVINChange}
-                value={vin}
+                value={automobile}
                 required
-                name="vin"
+                name="automobile"
                 id="vin"
                 className="form-select"
               >
