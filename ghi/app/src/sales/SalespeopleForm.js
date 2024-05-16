@@ -94,7 +94,7 @@ function SalespeopleForm() {
                   <label htmlFor="employee_id">Employee ID</label>
                 </div>
 
-                <button className="btn btn-primary">Create</button>
+                <button className="button1">Create</button>
               </form>
             </div>
           </div>

@@ -119,7 +119,7 @@ function AutomobileForm() {
               </select>
             </div>
             <div>
-              <button className="btn btn-primary">Create</button>
+              <button className="button">Create</button>
             </div>
           </form>
         </div>

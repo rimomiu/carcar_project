@@ -21,7 +21,7 @@ function SalespeopleList() {
         <h1>Salespeople</h1>
       </div>
       <div>
-        <table className="table table-striped">
+        <table className="comicGreen">
           <thead>
             <tr>
               <th>First Name</th>

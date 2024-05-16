@@ -112,7 +112,7 @@ function CustomerForm() {
                   />
                   <label htmlFor="phone_number">Phone Number</label>
                 </div>
-                <button className="btn btn-primary">Create</button>
+                <button className="button">Create</button>
               </form>
             </div>
           </div>

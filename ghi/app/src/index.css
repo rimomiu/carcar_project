@@ -1,13 +1,112 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	  sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	background-color:#CFFBCC
+
+  }
+  
+  code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	  monospace;
+  }
+  
+  h1{
+	font-family:cursive;
+	color: darkslategrey;
+
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.button1 {
+	background-color: darkgreen;
+	width: 590px;
+	height: 80px;
+	font-family:futura;
+	color: whitesmoke;
 }
+.button1:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+
+ 
+ .button {
+   align-self: center;
+   background-color: #fff;
+   background-image: none;
+   background-position: 0 90%;
+   background-repeat: repeat no-repeat;
+   background-size: 4px 3px;
+   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+   border-style: solid;
+   border-width: 2px;
+   box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+   box-sizing: border-box;
+   color: #41403e;
+   cursor: pointer;
+   display: inline-block;
+   font-family: Neucha, sans-serif;
+   font-size: 1rem;
+   line-height: 23px;
+   outline: none;
+   padding: .75rem;
+   text-decoration: none;
+   transition: all 235ms ease-in-out;
+   border-bottom-left-radius: 15px 255px;
+   border-bottom-right-radius: 225px 15px;
+   border-top-left-radius: 255px 15px;
+   border-top-right-radius: 15px 225px;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   width: 590px;
+ }
+ 
+ .button:hover {
+   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+   transform: translate3d(0, 2px, 0);
+ }
+ 
+ .button:focus {
+   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+ }
+
+
+ table.comicGreen {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	border: 2px solid #4F7849;
+	background-color: #EEEEEE;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+  }
+  table.comicGreen td, table.comicGreen th {
+	border: 1px solid #4F7849;
+	padding: 3px 2px;
+  }
+  table.comicGreen tbody td {
+	font-size: 19px;
+	font-weight: bold;
+	color: #4F7849;
+  }
+  table.comicGreen tr:nth-child(even) {
+	background: #CEE0CC;
+  }
+  table.comicGreen tfoot {
+	font-size: 21px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background: #4F7849;
+	background: -moz-linear-gradient(top, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+	background: -webkit-linear-gradient(top, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+	background: linear-gradient(to bottom, #7b9a76 0%, #60855b 66%, #4F7849 100%);
+	border-top: 1px solid #444444;
+  }
+  table.comicGreen tfoot td {
+	font-size: 21px;
+  }

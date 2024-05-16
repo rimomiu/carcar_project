@@ -189,7 +189,7 @@ function SalesForm() {
               />
               <label htmlFor="price">Price</label>
             </div>
-            <button className="btn btn-primary">Create</button>
+            <button className="button">Create</button>
           </form>
         </div>
       </div>
